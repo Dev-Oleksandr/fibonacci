@@ -4,4 +4,5 @@ npm run dev
 # How to run testing a program?
 npm run test
 
-If you want create docker container, you must change MYSQL_HOST from '127.0.0.1' to 'mysqldb' in .env file
+If you want to create a docker container, you must change MYSQL_HOST from '127.0.0.1' to 'mysqldb' in the .env file
+wait for you feedback
