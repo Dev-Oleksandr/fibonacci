@@ -1,0 +1,32 @@
+version: '3.0'
+
+services:
+  prog:
+    container_name: prog
+    build:
+      context: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 5000:5000
+    command: npm run dev
+    depends_on:
+      - mysqldb
+    restart: always
+  mysqldb:
+    container_name: mysql
+    image: mysql:5.7
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATA: /var/lib/mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+volumes:
+  mysql-data:
